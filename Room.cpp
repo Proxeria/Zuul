@@ -15,3 +15,11 @@ const char* directionString(direction d) {
   }
 }
 
+room::room(char* newDescription) {
+  roomDescription = new char[strlen(newDescription) + 1];
+  strcpy(roomDescription, newDescription);
+}
+
+room::~room() {
+  delete(roomDescription);
+}

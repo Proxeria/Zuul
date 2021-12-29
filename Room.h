@@ -13,9 +13,11 @@ class room {
  public:
   room(char* Description);
   ~room();
+  void setExit(direction, room*);
+  void describe();
   
  protected:
-  char roomDescription[100];
+  char* roomDescription;
   //items
-  std::map<char*, room*> exits;
+  std::map<direction, room*> exits;
 };
