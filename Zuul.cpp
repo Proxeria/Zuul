@@ -35,6 +35,8 @@ int main() {
   room* thirteen = new room((char*)"room thirteen");
   room* fourteen = new room((char*)"room fourteen");
   room* fifteen = new room((char*)"room fifteen");
+
+  one->describe();
   
 }
 

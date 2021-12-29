@@ -23,3 +23,12 @@ room::room(char* newDescription) {
 room::~room() {
   delete(roomDescription);
 }
+
+void room::describe() {
+  cout << "You are in " << roomDescription << "." << endl;
+  cout << "There are exits ";
+  for (auto it = exits.begin(); it != exits.end(); it++) {
+    cout << directionString(it->first) << " ";
+  }
+  cout << endl;
+}
