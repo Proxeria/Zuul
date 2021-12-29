@@ -32,3 +32,7 @@ void room::describe() {
   }
   cout << endl;
 }
+
+void room::setExit(direction exitDirection, room* probablyNotThisRoom) {
+  exits.insert({exitDirection, probablyNotThisRoom});
+}

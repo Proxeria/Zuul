@@ -36,6 +36,8 @@ int main() {
   room* fourteen = new room((char*)"room fourteen");
   room* fifteen = new room((char*)"room fifteen");
 
+  one->setExit(east, two);
+  one->setExit(south, six);
   one->describe();
   
 }
