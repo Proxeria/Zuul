@@ -10,7 +10,8 @@ int main() {
   //store map/room layout in a different thing
 
   cout << "Commands: " << endl
-       << "NORTH: Takes you to the room north of this room if possible" << endl
+       << directionString(north) << ": Takes you to the room north of this "
+       "room if possible" << endl
        << "EAST: Takes you to the room east of this room if possible" << endl
        << "SOUTH: Takes you to the room south of this room if possible" << endl
        << "WEST: Takes you to the room west of this room if possible" << endl;
