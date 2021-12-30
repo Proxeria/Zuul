@@ -39,7 +39,66 @@ int main() {
   one->setExit(east, two);
   one->setExit(south, six);
   one->describe();
-  
+
+  two->setExit(east, three);
+  two->setExit(west, one);
+  two->describe();
+
+  three->setExit(south, eight);
+  three->setExit(west, two);
+  three->describe();
+
+  four->setExit(east, five);
+  four->setExit(south, nine);
+  four->describe();
+
+  five->setExit(south, ten);
+  five->setExit(west, four);
+  five->describe();
+
+  six->setExit(north, one);
+  six->setExit(south, eleven);
+  six->describe();
+
+  seven->setExit(east, eight);
+  seven->setExit(south, twelve);
+  seven->describe();
+
+  eight->setExit(north, three);
+  eight->setExit(east, nine);
+  eight->setExit(south, thirteen);
+  eight->setExit(west, seven);
+  eight->describe();
+
+  nine->setExit(north, four);
+  nine->setExit(east, ten);
+  nine->setExit(west, eight);
+  nine->describe();
+
+  ten->setExit(north, five);
+  ten->setExit(south, fifteen);
+  ten->setExit(west, nine);
+  ten->describe();
+
+  eleven->setExit(north, six);
+  eleven->describe();
+
+  twelve->setExit(north, seven);
+  twelve->setExit(east, thirteen);
+  twelve->describe();
+
+  thirteen->setExit(north, eight);
+  thirteen->setExit(east, fourteen);
+  thirteen->setExit(west, twelve);
+  thirteen->describe();
+
+  fourteen->setExit(east, fifteen);
+  fourteen->setExit(west, thirteen);
+  fourteen->describe();
+
+  fifteen->setExit(north, ten);
+  fifteen->setExit(south, fourteen);
+  fifteen->describe();
 }
 
 
