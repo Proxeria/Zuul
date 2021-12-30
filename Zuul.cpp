@@ -8,14 +8,11 @@ using namespace std;
 
 int main() {
   char userIn[50];
+  room* playerLocation = nullptr;
 
   std::vector<Item*> inventory;
   
-  cout << "Welcome to Zuul" << endl
-       << "There are 5 parts of a sandwich hidden around this building," << endl
-       << "collect them all to craft the best sandwich to ever grace this Earth.";
   
-  cout << "Type HELP for a list of commands." << endl;
   
   //store item loactions in a thing
   //store map/room layout in a different thing
@@ -118,6 +115,53 @@ int main() {
   fifteen->setExit(south, fourteen);
   fifteen->addItem(cheese);
   fifteen->describe();
+
+  //GAME STARTS HERE
+
+  cout << "Welcome to Zuul" << endl
+       << "There are 5 parts of a sandwich hidden around this building," << endl
+       << "collect them all to craft the best sandwich to ever grace this Earth.";
+  
+  cout << "Type HELP for a list of commands." << endl;
+  
+  playerLocation = eight;
+  while (true) {
+    playerLocation->describe();
+
+    cout << "COMMANDS MUST BE LOWERCASE" << endl;
+    cout << "Input a command: " << endl;
+
+    cin.getline(userIn, 50, '\n');
+    //strlwr(userIn);
+
+    if (strcmp(userIn, "move") == 0) {
+      cout << "move" << endl;
+    }
+    else if (strcmp(userIn, "quit") == 0) {
+      exit;
+    }
+    else if (strcmp(userIn, "help") == 0) {
+      cout << "Commands: " << endl
+	   << "move: "
+	   << "north: Takes you to the room north of this room if possible" << endl
+	   << "east: Takes you to the room east of this room if possible" << endl
+	   << "south: Takes you to the room south of this room if possible" << endl
+	   << "west: Takes you to the room west of this room if possible" << endl
+	   << "inventory: Displays your current inventory" << endl
+	   << "get: pick up an item in the room" << endl
+	   << "drop: drop an item from your inventory into the room" << endl
+	   << "quit: exits the program" << endl;
+    }
+    else if (strcmp(userIn, "inventory") == 0) {
+      cout << "inventory";
+    }
+    else if (strcmp(userIn, "get") == 0) {
+      cout << "get";
+    }
+    else if (strcmp(userIn, "drop") == 0) {
+      cout << "drop";
+    }
+  }
 }
 
 
