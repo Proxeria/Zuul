@@ -1,33 +1,35 @@
 #include <iostream>
 #include <cstring>
 #include "Room.h"
+#include "Item.h"
 #include <vector>
 
 using namespace std;
 
 int main() {
   char userIn[50];
+
+  cout << "Welcome to Zuul" << endl
+       << "There are 5 parts of a sandwich hidden around this building," << endl
+       << "collect them all to craft the best sandwich to ever grace this Earth.";
+  
+  cout << "Type HELP for a list of commands." << endl;
+  
   //store item loactions in a thing
   //store map/room layout in a different thing
+  if (strcmp(userIn, "HELP") == 0 || strcmp(userIn, "help") == 0) {
+    cout << "Commands: " << endl
+	 << directionString(north) << ": Takes you to the room north of this "
+      "room if possible" << endl
+	 << "EAST: Takes you to the room east of this room if possible" << endl
+	 << "SOUTH: Takes you to the room south of this room if possible" << endl
+	 << "WEST: Takes you to the room west of this room if possible" << endl;
+  }
 
-  cout << "Commands: " << endl
-       << directionString(north) << ": Takes you to the room north of this "
-       "room if possible" << endl
-       << "EAST: Takes you to the room east of this room if possible" << endl
-       << "SOUTH: Takes you to the room south of this room if possible" << endl
-       << "WEST: Takes you to the room west of this room if possible" << endl;
+  Item* bacon = new Item((char*)"Bacon");
 
-  //might want to put this in a loop if code gets structured this way
-  cout << "Type HELP for list of commands" << endl
-       << "Enter a command to perform an action" << endl;
-
-  struct Item {
-    char itemName[15];
-    char itemNote[50];
-  };
-
-  std::vector<Item> items;
-
+  bacon->describe();
+  
   room* one = new room((char*)"room one");
   room* two = new room((char*)"room two");
   room* three = new room((char*)"room three");
