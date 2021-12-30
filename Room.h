@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include <map>
+#include "Item.h"
+#include <vector>
 
 using namespace std;
 
@@ -15,9 +17,11 @@ class room {
   ~room();
   void setExit(direction, room*);
   void describe();
+  void addItem(Item*);
+  Item* remItem(char* itemName);
   
  protected:
   char* roomDescription;
-  //items
   std::map<direction, room*> exits;
+  std::vector<Item*> items;
 };

@@ -9,6 +9,8 @@ using namespace std;
 int main() {
   char userIn[50];
 
+  std::vector<Item*> inventory;
+  
   cout << "Welcome to Zuul" << endl
        << "There are 5 parts of a sandwich hidden around this building," << endl
        << "collect them all to craft the best sandwich to ever grace this Earth.";
@@ -27,8 +29,10 @@ int main() {
   }
 
   Item* bacon = new Item((char*)"Bacon");
-
-  bacon->describe();
+  Item* bread = new Item((char*)"Bread");
+  Item* mayo = new Item((char*)"Mayo");
+  Item* cheese = new Item((char*)"Cheese");
+  Item* ham = new Item((char*)"Ham");
   
   room* one = new room((char*)"room one");
   room* two = new room((char*)"room two");
@@ -52,6 +56,7 @@ int main() {
 
   two->setExit(east, three);
   two->setExit(west, one);
+  two->addItem(mayo);
   two->describe();
 
   three->setExit(south, eight);
@@ -64,10 +69,12 @@ int main() {
 
   five->setExit(south, ten);
   five->setExit(west, four);
+  five->addItem(bread);
   five->describe();
 
   six->setExit(north, one);
   six->setExit(south, eleven);
+  six->addItem(bacon);
   six->describe();
 
   seven->setExit(east, eight);
@@ -95,6 +102,7 @@ int main() {
 
   twelve->setExit(north, seven);
   twelve->setExit(east, thirteen);
+  twelve->addItem(ham);
   twelve->describe();
 
   thirteen->setExit(north, eight);
@@ -108,6 +116,7 @@ int main() {
 
   fifteen->setExit(north, ten);
   fifteen->setExit(south, fourteen);
+  fifteen->addItem(cheese);
   fifteen->describe();
 }
 

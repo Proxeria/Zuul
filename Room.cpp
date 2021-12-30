@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "Room.h"
+#include "Item.h"
 
 using namespace std;
 
@@ -31,8 +32,18 @@ void room::describe() {
     cout << directionString(it->first) << " ";
   }
   cout << endl;
+  cout << "There are items: ";
+  for (auto it = items.begin(); it != items.end(); it++) {
+    (*it)->describe();
+    cout << " ";
+  }
+  cout << endl;
 }
 
 void room::setExit(direction exitDirection, room* probablyNotThisRoom) {
   exits.insert({exitDirection, probablyNotThisRoom});
+}
+
+void room::addItem(Item* newAddItem) {
+  items.push_back(newAddItem);
 }
