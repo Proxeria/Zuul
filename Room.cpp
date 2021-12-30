@@ -47,3 +47,12 @@ void room::setExit(direction exitDirection, room* probablyNotThisRoom) {
 void room::addItem(Item* newAddItem) {
   items.push_back(newAddItem);
 }
+//from cppreference.com
+room* room::moveRoom(direction moveDirection) {
+  auto roomExit = exits.find(moveDirection);
+  if (roomExit != exits.end()) {
+    return roomExit->second;
+  } else {
+    return nullptr;
+  }
+}

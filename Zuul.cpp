@@ -135,7 +135,32 @@ int main() {
     //strlwr(userIn);
 
     if (strcmp(userIn, "move") == 0) {
-      cout << "move" << endl;
+      cout << "What direction do you want to move? (n/e/s/w)" << endl;
+      cin.getline(userIn, 50, '\n');
+      direction moveDirection;
+      
+      if (strcmp(userIn, "n") == 0) {
+	moveDirection = north;
+      }
+      else if (strcmp(userIn, "e") == 0) {
+	moveDirection = east;
+      }
+      else if (strcmp(userIn, "s") == 0) {
+	moveDirection = south;
+      }
+      else if (strcmp(userIn, "w") == 0) {
+	moveDirection = west;
+      }
+      else {
+	cout << "Invalid direction" << endl;
+	break;
+      }
+      if (playerLocation->moveRoom(moveDirection) != nullptr) {
+	playerLocation = playerLocation->moveRoom(moveDirection);
+      }
+      else {
+	cout << "You can't move there!" << endl;
+      }
     }
     else if (strcmp(userIn, "quit") == 0) {
       exit;

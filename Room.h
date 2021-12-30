@@ -19,6 +19,7 @@ class room {
   void describe();
   void addItem(Item*);
   Item* remItem(char* itemName);
+  room* moveRoom(direction);
   
  protected:
   char* roomDescription;
