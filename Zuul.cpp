@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "Room.h"
+#include <vector>
 
 using namespace std;
 
@@ -19,6 +20,13 @@ int main() {
   //might want to put this in a loop if code gets structured this way
   cout << "Type HELP for list of commands" << endl
        << "Enter a command to perform an action" << endl;
+
+  struct Item {
+    char itemName[15];
+    char itemNote[50];
+  };
+
+  std::vector<Item> items;
 
   room* one = new room((char*)"room one");
   room* two = new room((char*)"room two");
