@@ -11,7 +11,12 @@ int main() {
   room* playerLocation = nullptr;
 
   std::vector<Item*> inventory;
-  
+
+  bool gotBacon = false;
+  bool gotBread = false;
+  bool gotMayo = false;
+  bool gotCheese = false;
+  bool gotHam = false;
   
   
   //store item loactions in a thing
@@ -215,7 +220,34 @@ int main() {
 	playerLocation->addItem(dropItem);
       }
     }
- 
+    //test for win
+    gotBacon = false;
+    gotBread = false;
+    gotMayo = false;
+    gotCheese = false;
+    gotHam = false;
+    for (auto it = inventory.begin(); it != inventory.end(); it++) {
+      if (strcmp("bacon", (*it)->getName()) == 0) {
+	gotBacon = true;
+      }
+      else if (strcmp("bread", (*it)->getName()) == 0) {
+	gotBread = true;
+      }
+      else if (strcmp("mayo", (*it)->getName()) == 0) {
+	gotMayo = true;
+      }
+      else if (strcmp("cheese", (*it)->getName()) == 0) {
+	gotCheese = true;
+      }
+      else if (strcmp("ham", (*it)->getName()) == 0) {
+	gotHam = true;
+      }
+    }
+    if (gotBacon && gotBread && gotMayo && gotCheese && gotHam) {
+      cout << "You have made a sanwich." << endl
+	   << "You win." << endl;
+      break;
+    }
   }
 }
 
