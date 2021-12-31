@@ -49,72 +49,72 @@ int main() {
 
   one->setExit(east, two);
   one->setExit(south, six);
-  one->describe();
+  //one->describe();
 
   two->setExit(east, three);
   two->setExit(west, one);
   two->addItem(mayo);
-  two->describe();
+  //two->describe();
 
   three->setExit(south, eight);
   three->setExit(west, two);
-  three->describe();
+  //three->describe();
 
   four->setExit(east, five);
   four->setExit(south, nine);
-  four->describe();
+  //four->describe();
 
   five->setExit(south, ten);
   five->setExit(west, four);
   five->addItem(bread);
-  five->describe();
+  //five->describe();
 
   six->setExit(north, one);
   six->setExit(south, eleven);
   six->addItem(bacon);
-  six->describe();
+  //six->describe();
 
   seven->setExit(east, eight);
   seven->setExit(south, twelve);
-  seven->describe();
+  //seven->describe();
 
   eight->setExit(north, three);
   eight->setExit(east, nine);
   eight->setExit(south, thirteen);
   eight->setExit(west, seven);
-  eight->describe();
+  //eight->describe();
 
   nine->setExit(north, four);
   nine->setExit(east, ten);
   nine->setExit(west, eight);
-  nine->describe();
+  //nine->describe();
 
   ten->setExit(north, five);
   ten->setExit(south, fifteen);
   ten->setExit(west, nine);
-  ten->describe();
+  //ten->describe();
 
   eleven->setExit(north, six);
-  eleven->describe();
+  //eleven->describe();
 
   twelve->setExit(north, seven);
   twelve->setExit(east, thirteen);
   twelve->addItem(ham);
-  twelve->describe();
+  //twelve->describe();
 
   thirteen->setExit(north, eight);
   thirteen->setExit(east, fourteen);
   thirteen->setExit(west, twelve);
-  thirteen->describe();
+  //thirteen->describe();
 
   fourteen->setExit(east, fifteen);
   fourteen->setExit(west, thirteen);
-  fourteen->describe();
+  //fourteen->describe();
 
   fifteen->setExit(north, ten);
   fifteen->setExit(south, fourteen);
   fifteen->addItem(cheese);
-  fifteen->describe();
+  // fifteen->describe();
 
   //GAME STARTS HERE
 
@@ -195,9 +195,27 @@ int main() {
       }
     }
     else if (strcmp(userIn, "drop") == 0) {
-      cout << "drop";
-      
+      cout << "What item do you want to drop?" << endl;
+      Item* dropItem = nullptr;
+      cin.getline(userIn, 50, '\n');
+      for (auto it = inventory.begin(); it != inventory.end();) {
+	if (strcmp(userIn, (*it)->getName()) == 0) {
+	  dropItem = *it;
+	  it = inventory.erase(it);
+	  break;
+	}
+	else {
+	  it++;
+	}
+      }
+      if (nullptr == dropItem) {
+	cout << "You do not have that item!" << endl;
+      }
+      else {
+	playerLocation->addItem(dropItem);
+      }
     }
+ 
   }
 }
 
