@@ -163,7 +163,7 @@ int main() {
       }
     }
     else if (strcmp(userIn, "quit") == 0) {
-      exit;
+      break;
     }
     else if (strcmp(userIn, "help") == 0) {
       cout << "Commands: " << endl
@@ -178,7 +178,9 @@ int main() {
 	   << "quit: exits the program" << endl;
     }
     else if (strcmp(userIn, "inventory") == 0) {
-      cout << "inventory";
+      for (auto it = inventory.begin(); it != inventory.end(); it++) {
+	(*it)->describe();
+      }
     }
     else if (strcmp(userIn, "get") == 0) {
       cout << "get";
