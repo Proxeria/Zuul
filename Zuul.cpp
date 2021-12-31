@@ -25,11 +25,11 @@ int main() {
 	 << "WEST: Takes you to the room west of this room if possible" << endl;
   }
 
-  Item* bacon = new Item((char*)"Bacon");
-  Item* bread = new Item((char*)"Bread");
-  Item* mayo = new Item((char*)"Mayo");
-  Item* cheese = new Item((char*)"Cheese");
-  Item* ham = new Item((char*)"Ham");
+  Item* bacon = new Item((char*)"bacon");
+  Item* bread = new Item((char*)"bread");
+  Item* mayo = new Item((char*)"mayo");
+  Item* cheese = new Item((char*)"cheese");
+  Item* ham = new Item((char*)"ham");
   
   room* one = new room((char*)"room one");
   room* two = new room((char*)"room two");
@@ -183,10 +183,20 @@ int main() {
       }
     }
     else if (strcmp(userIn, "get") == 0) {
-      cout << "get";
+      cout << "What item do you want to pick up?" << endl;
+      cin.getline(userIn, 50, '\n');
+      Item* roomItem = playerLocation->remItem((char*) userIn);
+      if (nullptr == roomItem) {
+	cout << "That item isn't there!" << endl;
+      }
+      else {
+	inventory.push_back(roomItem);
+	cout << "Iten retrieved!" << endl;
+      }
     }
     else if (strcmp(userIn, "drop") == 0) {
       cout << "drop";
+      
     }
   }
 }

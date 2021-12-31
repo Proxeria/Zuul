@@ -56,3 +56,16 @@ room* room::moveRoom(direction moveDirection) {
     return nullptr;
   }
 }
+Item* room::remItem(char* itemName) {
+  for (auto it = items.begin(); it != items.end();) {
+    if (strcmp(itemName, (*it)->getName()) == 0) {
+      Item* invItem = *it;
+      it = items.erase(it);
+      return invItem;
+    }
+    else {
+      it++;
+    }
+  }
+  return nullptr;
+}

@@ -16,3 +16,7 @@ Item::Item(char* newItemName) {
 Item::~Item() {
   delete(itemName);
 }
+
+const char* Item::getName() {
+  return itemName;
+}

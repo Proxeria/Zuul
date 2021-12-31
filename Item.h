@@ -9,6 +9,7 @@ class Item {
   Item(char* itemName);
   ~Item();
   void describe();
+  const char* getName();
   
  protected:
   char* itemName;
